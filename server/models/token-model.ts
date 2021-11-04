@@ -1,6 +1,13 @@
 import { Schema, model } from 'mongoose'
 
-const UserSchema = new Schema( {
-  email: { type: String, unique: true, required: true },
-  password: { type: String, required: true }
+export interface IToken {
+  user: unknown
+  refreshToken: string
+}
+
+const TokenSchema = new Schema<IToken>( {
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
+  refreshToken: { type: String, required: true }
 })
+
+export default model('Token', TokenSchema)
