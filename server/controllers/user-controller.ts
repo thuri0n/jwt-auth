@@ -34,9 +34,11 @@ class UserController {
 
   async activate(req: Request, res: Response, next: NextFunction) {
     try {
-
+      const activationLink = req.params.link
+      await userService.activate(activationLink)
+      return res.redirect(process.env.CLIENT_URL)
     } catch (e) {
-
+      console.log(e);
     }
   }
 
@@ -57,4 +59,4 @@ class UserController {
   }
 }
 
-export default new UserController()
+export const userController = new UserController()

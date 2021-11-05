@@ -1,13 +1,12 @@
+import 'dotenv/config'
+
 import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import router from '../router';
 
-dotenv.config()
-
-const PORT = process.env.PORT || 60001
+const PORT = process.env.PORT || 6001
 
 const app = express()
 app.use(express.json())

@@ -1,6 +1,7 @@
 import { Router } from 'express';
-import userController from '../controllers/user-controller'
+import { userController } from '../controllers/user-controller'
 
+console.log(process.env);
 const router = Router()
 
 router.post('/registration', userController.registration)
